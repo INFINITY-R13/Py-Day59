@@ -1,3 +1,4 @@
+# For simple blog: Py-Day57 
 # Flask Blog 2.0 - Bootstrap Edition
 
 A modern, fully-featured blog platform built with Flask and Bootstrap 5. Create, manage, and publish blog posts with a beautiful, responsive interface.
