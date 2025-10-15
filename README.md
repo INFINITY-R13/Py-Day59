@@ -8,6 +8,8 @@ A modern, responsive blog built with Flask and Bootstrap 5.
 - **Multi-page website** with interactive navigation bar
 - **Dynamically generated blog post pages** with full-screen hero titles
 - **Fully mobile responsive** with adaptive navigation bar
+- **Blog post creation system** - Write and publish new posts instantly
+- **Post management dashboard** - View, organize, and delete posts
 - **Modern UI/UX** with smooth animations and hover effects
 - **Professional typography** using Google Fonts (Playfair Display + Source Sans Pro)
 
@@ -28,9 +30,19 @@ A modern, responsive blog built with Flask and Bootstrap 5.
 
 ### 📄 Pages
 - **Home**: Hero section with latest blog posts in card layout
-- **Blog Posts**: Individual post pages with full-screen titles
+- **Blog Posts**: Individual post pages with full-screen titles and related posts
+- **Create Post**: Rich form to write and publish new blog posts
+- **Manage Posts**: Dashboard to view, organize, and delete posts
 - **About**: Personal profile with skills and statistics
 - **Contact**: Contact form with FAQ section
+
+### ✍️ Blog Creation Features
+- **Rich post creation form** with title, subtitle, author, and content fields
+- **Live preview functionality** to see how posts will look before publishing
+- **Auto-save to localStorage** to prevent data loss while writing
+- **Instant publishing** with automatic date stamping
+- **Post management** with easy deletion and organization
+- **Floating action button** for quick access to post creation
 
 ## Technologies Used
 - **Backend**: Flask (Python)

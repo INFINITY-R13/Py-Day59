@@ -10,9 +10,14 @@
                 <div class="col-lg-8 mx-auto">
                     <h1 class="hero-title">Welcome to My Flask Blog</h1>
                     <p class="hero-subtitle">Discover amazing stories, tutorials, and insights about web development</p>
-                    <a href="#posts" class="btn btn-light btn-lg">
-                        <i class="fas fa-arrow-down me-2"></i>Explore Posts
-                    </a>
+                    <div class="d-flex gap-3 justify-content-center flex-wrap">
+                        <a href="#posts" class="btn btn-light btn-lg">
+                            <i class="fas fa-arrow-down me-2"></i>Explore Posts
+                        </a>
+                        <a href="{{ url_for('create_post') }}" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-plus me-2"></i>Write a Post
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

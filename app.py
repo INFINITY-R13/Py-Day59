@@ -1,6 +1,8 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for, flash
+from datetime import datetime
 
 app = Flask(__name__)
+app.secret_key = 'your-secret-key-here'  # Change this in production
 
 # Sample blog posts data
 blog_posts = [
@@ -69,6 +71,50 @@ def about():
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
+
+@app.route('/create', methods=['GET', 'POST'])
+def create_post():
+    if request.method == 'POST':
+        # Get form data
+        title = request.form.get('title')
+        subtitle = request.form.get('subtitle')
+        author = request.form.get('author')
+        content = request.form.get('content')
+        
+        # Basic validation
+        if not all([title, subtitle, author, content]):
+            flash('All fields are required!', 'error')
+            return render_template('create.html')
+        
+        # Create new post
+        new_id = max([post['id'] for post in blog_posts]) + 1 if blog_posts else 1
+        new_post = {
+            'id': new_id,
+            'title': title,
+            'subtitle': subtitle,
+            'author': author,
+            'date': datetime.now().strftime('%B %d, %Y'),
+            'content': content
+        }
+        
+        # Add to blog posts
+        blog_posts.append(new_post)
+        
+        flash('Blog post created successfully!', 'success')
+        return redirect(url_for('post_detail', post_id=new_id))
+    
+    return render_template('create.html')
+
+@app.route('/manage')
+def manage_posts():
+    return render_template('manage.html', posts=blog_posts)
+
+@app.route('/delete/<int:post_id>')
+def delete_post(post_id):
+    global blog_posts
+    blog_posts = [post for post in blog_posts if post['id'] != post_id]
+    flash('Post deleted successfully!', 'success')
+    return redirect(url_for('manage_posts'))
 
 if __name__ == '__main__':
     app.run(debug=True)
